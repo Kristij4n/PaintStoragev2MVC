@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Paint List";
+}
+
+<h2>Paint Operations</h2>
+
+<table id="paintTable" class="display">
+    <thead>
+        <tr>
+            <th>RAL</th>
+            <th>Storage</th>
+        </tr>
+    </thead>
+</table>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#paintTable").DataTable({
+                "ajax": {
+                    "url": "/Paint/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "RAL" },
+                    { "data": "Storage" }               
+                    
+                ]
+                
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,10 @@
+Programming - Kristijan
+
+**********************************************************************
+20220408_0058_PaintStoragev2MVC
+
+-code and documented with how to shoots for vs
+-create table in sql
+-first run without data - TEST OK
+
+**********************************************************************
