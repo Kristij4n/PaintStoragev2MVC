@@ -23,5 +23,19 @@ namespace PaintStoragev2MVC.Controllers
                 return Json(new { data = paintList }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpGet]
+
+        public ActionResult AddOrEdit(int id = 0)
+        {
+            return View(new PaintDB());
+        }
+
+        [HttpPost]
+
+        public ActionResult AddOrEdit()
+        {
+            return View();
+        }
     }
 }
