@@ -10,12 +10,22 @@
 namespace PaintStoragev2MVC.Models
 {
     using System;
-    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Diagnostics;
+
     
-    public partial class PaintDB
+    public partial class Paint
     {
-        public int PaintID { get; set; }
-        public string RAL { get; set; }
+        
+        public Nullable<int> RAL { get; set; }
+        [Required(ErrorMessage = "This Field is Required")]
         public Nullable<int> Storage { get; set; }
+        [Required(ErrorMessage = "This Field is Required")]
+        public int PaintID { get; set; }
     }
+    
+
+    
 }
+
+

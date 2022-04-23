@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\IT_Go\MyApps\web_asp_mvc\PaintStoragev2MVC\PaintStoragev2MVC\Models\DBModels.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\IT_Go\MyApps\web_asp_mvc\PaintStorage\20220423_0329_PaintStoragev2MVC\PaintStoragev2MVC\PaintStoragev2MVC\Models\DBModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

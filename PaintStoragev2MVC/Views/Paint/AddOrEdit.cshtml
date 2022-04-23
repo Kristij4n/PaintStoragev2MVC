@@ -1,22 +1,24 @@
-﻿@model PaintStoragev2MVC.Models.PaintDB
+﻿@model PaintStoragev2MVC.Models.Paint
 @{
     Layout = null;
 }
 
-@using (Html.BeginForm("AddOrEdit", "PaintDB", FormMethod.Post))
+@using (Html.BeginForm("AddOrEdit", "Paint", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
 {
     @Html.HiddenFor(model => model.PaintID)
     <div class="form-group">
         @Html.LabelFor(model => model.RAL, new { @class = "control-label" })
         @Html.EditorFor(model => model.RAL, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.RAL)
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Storage, new { @class = "control-label" })
         @Html.EditorFor(model => model.Storage, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Storage)
     </div>
+
     <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />
-        <input type="reset" value="Reset" class="btn btn-warning" />
+        <input type="reset" value="Reset" class="btn" />
     </div>
 }
-

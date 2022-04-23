@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PaintStorageDBModelStoreContainer" CdmEntityContainer="PaintStorageDBEntities">
-    <EntitySetMapping Name="PaintDB">
-      <EntityTypeMapping TypeName="PaintStorageDBModel.PaintDB">
-        <MappingFragment StoreEntitySet="PaintDB">
+  <EntityContainerMapping StorageEntityContainer="TestMVCDBModelStoreContainer" CdmEntityContainer="DBModel">
+    <EntitySetMapping Name="Paint">
+      <EntityTypeMapping TypeName="TestMVCDBModel.Paint">
+        <MappingFragment StoreEntitySet="Paint">
           <ScalarProperty Name="PaintID" ColumnName="PaintID" />
           <ScalarProperty Name="RAL" ColumnName="RAL" />
           <ScalarProperty Name="Storage" ColumnName="Storage" />

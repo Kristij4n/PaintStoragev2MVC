@@ -13,10 +13,10 @@ namespace PaintStoragev2MVC.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PaintStorageDBEntities : DbContext
+    public partial class DBModel : DbContext
     {
-        public PaintStorageDBEntities()
-            : base("name=PaintStorageDBEntities")
+        public DBModel()
+            : base("name=DBModel")
         {
         }
     
@@ -25,6 +25,6 @@ namespace PaintStoragev2MVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<PaintDB> PaintDB { get; set; }
+        public virtual DbSet<Paint> Paint { get; set; }
     }
 }

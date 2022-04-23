@@ -8,3 +8,9 @@ Programming - Kristijan
 -first run without data - TEST OK
 
 **********************************************************************
+**********************************************************************
+20220423_0329_PaintStoragev2MVC
+
+changes with how to tutorial
+TEST for Run OK, but need to solve details
+**********************************************************************

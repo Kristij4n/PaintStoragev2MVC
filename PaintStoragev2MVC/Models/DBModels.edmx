@@ -4,43 +4,43 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PaintStorageDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="PaintDB">
+      <Schema Namespace="TestMVCDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Paint">
           <Key>
             <PropertyRef Name="PaintID" />
           </Key>
           <Property Name="PaintID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RAL" Type="varchar" MaxLength="50" />
+          <Property Name="RAL" Type="int" />
           <Property Name="Storage" Type="int" />
         </EntityType>
-        <EntityContainer Name="PaintStorageDBModelStoreContainer">
-          <EntitySet Name="PaintDB" EntityType="Self.PaintDB" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="TestMVCDBModelStoreContainer">
+          <EntitySet Name="Paint" EntityType="Self.Paint" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PaintStorageDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="PaintDB">
+      <Schema Namespace="TestMVCDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Paint">
           <Key>
             <PropertyRef Name="PaintID" />
           </Key>
           <Property Name="PaintID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RAL" Type="Int32" />
           <Property Name="Storage" Type="Int32" />
         </EntityType>
-        <EntityContainer Name="PaintStorageDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="PaintDB" EntityType="Self.PaintDB" />
+        <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Paint" EntityType="Self.Paint" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PaintStorageDBModelStoreContainer" CdmEntityContainer="PaintStorageDBEntities">
-          <EntitySetMapping Name="PaintDB">
-            <EntityTypeMapping TypeName="PaintStorageDBModel.PaintDB">
-              <MappingFragment StoreEntitySet="PaintDB">
+        <EntityContainerMapping StorageEntityContainer="TestMVCDBModelStoreContainer" CdmEntityContainer="DBModel">
+          <EntitySetMapping Name="Paint">
+            <EntityTypeMapping TypeName="TestMVCDBModel.Paint">
+              <MappingFragment StoreEntitySet="Paint">
                 <ScalarProperty Name="PaintID" ColumnName="PaintID" />
                 <ScalarProperty Name="RAL" ColumnName="RAL" />
                 <ScalarProperty Name="Storage" ColumnName="Storage" />

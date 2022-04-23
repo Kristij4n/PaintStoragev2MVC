@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,25 +18,60 @@ namespace PaintStoragev2MVC.Controllers
 
         public ActionResult GetData()
         {
-            using (PaintStorageDBEntities db = new PaintStorageDBEntities())
+            using (DBModel db = new DBModel())
             {
-                List<PaintDB> paintList = db.PaintDB.ToList<PaintDB>();
-                return Json(new { data = paintList }, JsonRequestBehavior.AllowGet);
+                List<Paint> empList = db.Paint.ToList<Paint>();
+                return Json(new { data = empList }, JsonRequestBehavior.AllowGet);
             }
         }
 
-        [HttpGet]
 
+        [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {
-            return View(new PaintDB());
+            if (id == 0)
+                return View(new Paint());
+            else
+            {
+                using (DBModel db = new DBModel())
+                {
+                    return View(db.Paint.Where(x => x.PaintID == id).FirstOrDefault<Paint>());
+                }
+            }
         }
 
         [HttpPost]
-
-        public ActionResult AddOrEdit()
+        public ActionResult AddOrEdit(Paint emp)
         {
-            return View();
+            using (DBModel db = new DBModel())
+            {
+                if (emp.PaintID == 0)
+                {
+                    db.Paint.Add(emp);
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    db.Entry(emp).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            using (DBModel db = new DBModel())
+            {
+                Paint emp = db.Paint.Where(x => x.PaintID == id).FirstOrDefault<Paint>();
+                db.Paint.Remove(emp);
+                db.SaveChanges();
+                return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
