@@ -1,11 +1,10 @@
 Programming - Kristijan
 
-**********************************************************************
-20220408_0058_PaintStoragev2MVC
 
--code and documented with how to shoots for vs
--create table in sql
--first run without data - TEST OK
+**********************************************************************
+
+20220424_0458_PaintStoragev2MVC created get,add,edit,delete data 
+TEST OK need to solve validation bug for RAL to do: tutorial how to for crud
 
 **********************************************************************
 **********************************************************************
@@ -14,3 +13,12 @@ Programming - Kristijan
 changes with how to tutorial
 TEST for Run OK, but need to solve details
 **********************************************************************
+**********************************************************************
+20220408_0058_PaintStoragev2MVC
+
+-code and documented with how to shoots for vs
+-create table in sql
+-first run without data - TEST OK
+
+**********************************************************************
+
